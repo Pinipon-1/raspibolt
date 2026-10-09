@@ -377,15 +377,15 @@ s, and more.
 
 ### Backup the database
 
-If the database gets corrupted and you don't have a backup, you will have to resync it from scratch, which takes several days. This is why we recommend to make 
-backups of the database once in a while, on an external drive. Like this, if something happens, you'll only have to resync since the date of your latest backup.
-Before doing the backup, remember to stop Fulcrum doing `"sudo systemctl stop fulcrum"`.
+  If the database gets corrupted and you don't have a backup, you will have to resync it from scratch, which takes several days. This is why we recommend to make 
+  backups of the database once in a while, on an external drive. Like this, if something happens, you'll only have to resync since the date of your latest backup.
+  Before doing the backup, remember to stop Fulcrum doing `"sudo systemctl stop fulcrum"`.
 
 ### Add banner to Fulcrum server (For fun!)
 
-You can get creative when making your server banner, for example creating your own [ASCII art](https://patorjk.com/software/taag/#p=display&f=Slant&t=Fulcrum). 
-In [Fulcrum docs](https://github.com/cculianu/Fulcrum/blob/master/doc/fulcrum-example-config.conf) you can find additional info about making a banner in the "# 
-Server banner text file - 'banner'" section.
+  You can get creative when making your server banner, for example creating your own [ASCII art](https://patorjk.com/software/taag/#p=display&f=Slant&t=Fulcrum). 
+  In [Fulcrum docs](https://github.com/cculianu/Fulcrum/blob/master/doc/fulcrum-example-config.conf) you can find additional info about making a banner in the "# 
+  Server banner text file - 'banner'" section.
 
 - Create and open `banner.txt` file inside Fulcrum directory
 
@@ -529,6 +529,7 @@ Expected output:
 ```
 
 - Find the "allow Fulcrum TCP" and "allow Fulcrum SSL" lines and write down the corresponding rule numbers (W, X, Y, and Z in the example) 
+
 - Delete the rule with the correct number and confirm with "yes"
 
   ```bash
