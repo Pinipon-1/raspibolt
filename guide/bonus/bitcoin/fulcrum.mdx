@@ -14,12 +14,12 @@ This guide will help you install the latest version of Fulcrum.
 ## Requirements
 
 - Bitcoin Core v0.17.0 or later, >= v28.0.0 is recommended for full Electrum Protocol v1.6 support. Bitcoin Knots is also known to work perfectly well.
-- The node must have txindex enabled e.g. `txindex=1`.
+- The node must have `txindex` enabled e.g. `txindex=1`.
 - Caddy installed (from the same guide or standalone via `caddyserver.com`)
-- Storage space for database (external backup recommended); currently takes up 192GB (as of October 2026).
+- Storage space for database (external backup recommended); currently takes up 192 GB (as of October 2026).
 
 Fulcrum is a replacement for an Electrs, these two services cannot be run at the same time (due to the same standard ports used), remember to stop Electrs doing
-`sudo systemctl stop electrs`. Performance issues have been found on Raspberry Pi 4GB, it is recommended to install Fulcrum on 8GB RAM version.
+`sudo systemctl stop electrs`. Performance issues have been found on Raspberry Pi 4 GB, it is recommended to install Fulcrum on 8 GB RAM version.
 
 ## Preparations
 
@@ -169,11 +169,11 @@ t necessary to put any info
 
 ### Configuration
 
-RaspiBolt uses SSL as default for Fulcrum, but some wallets like [BlueWallet](https://bluewallet.io/) do not support SSL over Tor. Thats why we use TCP in confi
-gurations as well to let user choose what he needs. You may as well need to use TCP for other reasons.
+RaspiBolt uses SSL as default for Fulcrum, but some wallets like [BlueWallet](https://bluewallet.io/) do not support SSL over Tor. That's why we use TCP in
+configurations as well to let user choose what he needs. You may as well need to use TCP for other reasons.
 
-- Next, we have to set up our Fulcrum configurations. Troubles could be found without optimizations for Raspberry Pi. Choose either one for Raspberry 4GB or 8GB
-depending on your hardware. Create the config file with the following content. Save and exit
+- Next, we have to set up our Fulcrum configurations. Troubles could be found without optimizations for Raspberry Pi. Choose either one for Raspberry 4 GB
+or 8 GB depending on your hardware. Create the config file with the following content. Save and exit
 
   ```bash
   nano /data/fulcrum/fulcrum.conf
@@ -263,27 +263,27 @@ Fulcrum needs to start automatically on system boot.
 Fulcrum will now index the whole Bitcoin blockchain so that it can provide all necessary information to wallets. With this, the wallets you use no longer need
 to connect to any third-party server to communicate with the Bitcoin peer-to-peer network.
 
-DO NOT REBOOT OR STOP THE SERVICE DURING DB CREATION PROCESS. YOU MAY CORRUPT THE FILES - in case of that happening, start sync from scratch by deleting and rec
-reating `fulcrum_db` folder.
+DO NOT REBOOT OR STOP THE SERVICE DURING DB CREATION PROCESS. YOU MAY CORRUPT THE FILES - in case of that happening, start sync from scratch by deleting and
+recreating `fulcrum_db` folder.
 
-💡 Fulcrum must first fully index the blockchain and compact its database before you can connect to it with your wallets. This can take a few days days. Only pr
-oceed with the [Desktop Wallet Section](https://raspibolt.org/docs/bitcoin/desktop-wallet/) once Fulcrum is ready.
+💡 Fulcrum must first fully index the blockchain and compact its database before you can connect to it with your wallets. This can take a few days. Only 
+proceed with the [Desktop Wallet Section](https://raspibolt.org/docs/bitcoin/desktop-wallet/) once Fulcrum is ready.
 
 ## Extras
 
 ### Remote access over Tor (optional)
 
 To use your Fulcrum server when you're on the go, you can easily create a Tor hidden service.
-This way, you can connect the BitBoxApp or Electrum wallet also remotely, or even share the connection details with friends and family. Note that the remote dev
-ice needs to have Tor installed as well.
+This way, you can connect the BitBoxApp or Electrum wallet also remotely, or even share the connection details with friends and family. Note that the remote
+device needs to have Tor installed as well.
 
-- Ensure that you are logged with user "admin" and add the following three lines in the section for "location-hidden services" in the torrc file. Save and exit
+- Ensure that you are logged with user "admin" and add the following three lines in the section for "location-hidden services" in the `torrc` file. Save and exit
 
   ```bash
   sudo nano /etc/tor/torrc
   ```
 
-- Edit torrc
+- Edit `torrc`
   
   ```bash
   ############### This section is just for location-hidden services ###
@@ -486,7 +486,7 @@ Ensure you are logged with user "admin"
 
 ### Uninstall Tor hidden service
 
-- Comment (using #) or remove fulcrum hidden service in torrc. Save and exit
+- Comment (using #) or remove fulcrum hidden service in `torrc`. Save and exit
 
   ```bash
   sudo nano /etc/tor/torrc
@@ -505,7 +505,7 @@ Ensure you are logged with user "admin"
   #HiddenServicePort 50001 127.0.0.1:50001
   ```
 
-- Reload torrc config
+- Reload `torrc` config
   
   ```bash
   sudo systemctl reload tor
